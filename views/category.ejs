@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <title>MyStreetWear App</title>
+    </head>
+
+
+<style>
+    /* For  the product */
+    .product {
+    margin-top: 40px;
+    margin: 12px;
+    width: 400px;
+    }
+
+    .product:hover {
+    border: 1px solid #777;
+    }
+
+    .product img {
+    width: auto;
+    height: 300px;
+
+    }
+
+    .desc {
+    padding: 15px;
+    text-align: left;
+    overflow: hidden; /* Hide overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    }
+
+    .navbar-brand h4 {
+    font-size: 1.8rem; /* Adjust the brand name size */
+    }
+
+    .navbar-nav  {
+      font-size: 1.60rem; /* Adjust the nav link size */
+    }
+</style>
+
+<body>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="/images/mystreetwear.png" alt="Logo" style="width:150px;" class="rounded-pill">
+        </a>
+        <a class="navbar-brand" href="/"><h4>MyStreetWear</h4></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/addProduct">Add new product</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/allProduct">All Product</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Category</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/category/1">Long Sleeve</a></li>
+                <li><a class="dropdown-item" href="/category/2">Short Sleeve</a></li>
+                <li><a class="dropdown-item" href="/category/3">Shorts</a></li>
+                <li><a class="dropdown-item" href="/category/4">Long Bottom Wear</a></li>
+                <li><a class="dropdown-item" href="/category/6">Cap</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <% for(let i = 0; i < products.length; i++) { %>
+        <div class="product">
+          <a href="/product/<%= products[i].productId %>"><img src="<%= products[i].image %>" alt="Product Image" width="600" height="400"></a>
+          <div class="desc"><%= products[i].name %></div>
+          <div class="desc">$S<%= products[i].price %></div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
