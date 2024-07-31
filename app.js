@@ -5,7 +5,7 @@ const app = express();
 // Create MySQL connection
 const connection = mysql.createConnection({
     host: 'db4free.net',
-    user: 'hong_database',
+    user: 'teckhong',
     password: 'Pangteckhong2003',
     database: 'hong_database'
 });
